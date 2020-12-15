@@ -19,4 +19,15 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.post('/', function(req, res, next){
+    const komentar = Bukutamu.create({ 
+        nama: req.body.nama,
+        email: req.body.email,
+        website: req.body.website,
+        komentar: req.body.komentar
+    }).then(data => {
+        res.send(data);
+    });
+});
+
 module.exports = router;
